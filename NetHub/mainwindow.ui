@@ -27,7 +27,7 @@
      </rect>
     </property>
     <property name="title">
-     <string>Send Data</string>
+     <string>Send Data to Server</string>
     </property>
     <widget class="QWidget" name="gridLayoutWidget_2">
      <property name="geometry">
@@ -69,7 +69,7 @@
      </rect>
     </property>
     <property name="title">
-     <string>Receive Data</string>
+     <string>Client</string>
     </property>
     <widget class="QWidget" name="gridLayoutWidget">
      <property name="geometry">
@@ -116,7 +116,7 @@
        </widget>
       </item>
       <item row="2" column="2">
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="connectDeviceButton">
         <property name="text">
          <string>Connect</string>
         </property>
@@ -162,7 +162,7 @@
     <property name="geometry">
      <rect>
       <x>680</x>
-      <y>20</y>
+      <y>0</y>
       <width>751</width>
       <height>371</height>
      </rect>
@@ -194,7 +194,7 @@
        </widget>
       </item>
       <item row="1" column="2">
-       <widget class="QPushButton" name="pushButton_2">
+       <widget class="QPushButton" name="startServerButton">
         <property name="text">
          <string>Start new TCP Server</string>
         </property>
@@ -236,7 +236,7 @@
      </property>
      <layout class="QGridLayout" name="gridLayout_3">
       <item row="2" column="0">
-       <widget class="QPushButton" name="sendButton_2">
+       <widget class="QPushButton" name="sendAllClientsButton">
         <property name="text">
          <string>Send Message to All TCP Server Clients</string>
         </property>

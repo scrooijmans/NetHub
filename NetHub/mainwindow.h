@@ -23,8 +23,7 @@ public:
 
 private slots:
     void on_ipLineEdit_textChanged(const QString &arg1);
-
-    void on_pushButton_clicked();
+    void on_connectDeviceButton_clicked();
 
     void device_connected();
     void device_disconnected();
@@ -35,14 +34,12 @@ private slots:
     void connectionTimeOut();
 
     void on_sendButton_clicked();
-
-
-    void on_newTCPServerButton_clicked();
     void on_newClientConnected();
-    void on_sendButton_2_clicked();
-
     void clientDataReceived(QString data);
     void clientDisconnected();
+    void on_sendAllClientsButton_clicked();
+
+    void on_startServerButton_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -51,7 +48,6 @@ private:
     QTimer m_timer;
 
     TCPServer *m_tcpServer;
-
 
     void setDeviceController();
 

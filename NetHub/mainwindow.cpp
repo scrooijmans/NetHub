@@ -15,15 +15,9 @@ MainWindow::MainWindow(QWidget *parent)
     m_timer.setSingleShot(true);
     // Set timeout duration
     m_timer.setInterval(2000);
-
     // Set up connections
     setDeviceController();
-
     m_tcpServer = nullptr;
-
-
-
-
 }
 
 MainWindow::~MainWindow()
@@ -44,32 +38,32 @@ void MainWindow::on_ipLineEdit_textChanged(const QString &arg1)
     }
 }
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_connectDeviceButton_clicked()
 {
-    auto ip = ui->ipLineEdit->text();
-    auto port = ui->portSpinbox->text().toInt();
 
-    // Start the timer when connecting to the device
-    m_timer.start();
-
-    m_deviceController.ConnectToDevice(ip, port);
+    if (m_deviceController.isConnected())
+    {
+        m_deviceController.disconnect();
+    }
+    else
+    {
+        auto ip = ui->ipLineEdit->text();
+        auto port = ui->portSpinbox->text().toInt();
+        m_deviceController.ConnectToDevice(ip, port);
+    }
 }
 
 void MainWindow::device_connected()
 {
     ui->listWidget->addItem("Connected to device");
-    ui->pushButton->setText("Disconnect");
-
+    ui->connectDeviceButton->setText("Disconnect");
     ui->grpSendData->setEnabled(true);
-
-
-
 }
 
 void MainWindow::device_disconnected()
 {
     ui->listWidget->addItem("Disconnected from device");
-    ui->pushButton->setText("Connect");
+    ui->connectDeviceButton->setText("Connect");
 
     ui->grpSendData->setEnabled(false);
 }
@@ -119,31 +113,11 @@ void MainWindow::on_sendButton_clicked()
     // m_deviceController.sendMessage(message);
 }
 
-
-void MainWindow::on_newTCPServerButton_clicked()
-{
-    if (m_tcpServer == nullptr)
-    {
-        auto port = ui->tcpPortSpinbox->value();
-        m_tcpServer = new TCPServer(this, port);
-        connect(m_tcpServer, &TCPServer::newClientConnected, this, &MainWindow::on_newClientConnected);
-        connect(m_tcpServer, &TCPServer::clientDataReceived, this, &MainWindow::clientDataReceived);
-
-
-    }
-}
-
 void MainWindow::on_newClientConnected()
 {
     ui->listWidget->addItem("New client connected");
 }
 
-
-void MainWindow::on_sendButton_2_clicked()
-{
-    auto message = ui->messageToAllClients->text();
-    m_tcpServer->sendMessageToAllClients(message);
-}
 
 void MainWindow::clientDataReceived(QString data)
 {
@@ -154,3 +128,24 @@ void MainWindow::clientDisconnected()
 {
     ui->listWidget->addItem("Client disconnected");
 }
+
+void MainWindow::on_sendAllClientsButton_clicked()
+{
+    auto message = ui->messageToAllClients->text();
+    m_tcpServer->sendMessageToAllClients(message);
+}
+
+void MainWindow::on_startServerButton_clicked()
+{
+    if (m_tcpServer == nullptr)
+    {
+        auto port = ui->tcpPortSpinbox->value();
+        m_tcpServer = new TCPServer(this, port);
+        connect(m_tcpServer, &TCPServer::newClientConnected, this, &MainWindow::on_newClientConnected);
+        connect(m_tcpServer, &TCPServer::clientDataReceived, this, &MainWindow::clientDataReceived);
+    }
+}
+
+
+
+

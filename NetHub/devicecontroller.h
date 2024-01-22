@@ -11,8 +11,8 @@ class DeviceController : public QObject
 public:
     explicit DeviceController(QObject *parent = nullptr);
     void ConnectToDevice(QString IP, int port);
-
     void sendMessage(QString message);
+    bool isConnected() {return m_socket.state() == QAbstractSocket::ConnectedState;}
 
 signals:
     void connected();

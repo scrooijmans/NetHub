@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-469bdd3becdb32288f5a.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "NetHub",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "NetHub::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-NetHub-Debug-98f2984581e0ed55fdfd.json",
+					"name" : "NetHub",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "NetHub_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-NetHub_autogen-Debug-bb3f01e5f43e5438f190.json",
+					"name" : "NetHub_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "NetHub_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-NetHub_autogen_timestamp_deps-Debug-9fe4e4c5642b2b246568.json",
+					"name" : "NetHub_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/StefanC/Desktop/dev/SANDBOX/NetHub/NetHub/build-NetHub-Apple_Clang_arm64_2024-Debug",
+		"source" : "/Users/StefanC/Desktop/dev/SANDBOX/NetHub/NetHub/NetHub"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}
